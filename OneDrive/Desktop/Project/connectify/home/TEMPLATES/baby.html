@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  {% load static %}
+  <title>Baby Care</title>
+  <link rel="shortcut icon" href="{% static 'connectify_favicon.png' %}">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="{% static 'doctor.css' %}">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    p,
+    span,
+    h6 {
+      font-family: "Lato", sans-serif
+    }
+
+    .w3-bar,
+    h1,
+    button {
+      font-family: "Montserrat", sans-serif
+    }
+
+    .fa-anchor,
+    .fa-coffee {
+      font-size: 200px
+    }
+
+    .topnav {
+      overflow: hidden;
+      background-color: #c05c5c;
+    }
+
+    .topnav a {
+      float: left;
+      display: block;
+      color: black;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+      font-size: 17px;
+    }
+
+    .topnav a:hover {
+      background-color: #ddd;
+      color: black;
+    }
+
+    .topnav a.active {
+      background-color: #942424;
+      color: white;
+    }
+
+    .topnav .search-container {
+      float: right;
+    }
+
+    .topnav input[type=text] {
+      padding: 6px;
+      margin-top: 8px;
+      font-size: 17px;
+      border: none;
+    }
+
+    .topnav .search-container button {
+      float: right;
+      padding: 6px 10px;
+      margin-top: 8px;
+      margin-right: 16px;
+      background: rgb(218, 132, 132);
+      font-size: 17px;
+      border: none;
+      cursor: pointer;
+    }
+
+    @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600');
+
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: #c88a8a;
+      font-family: 'Open Sans', sans-serif;
+    }
+
+    .wrapper {
+      position: relative;
+    }
+
+
+    .wrapper2 {
+      position: relative;
+    }
+
+    .brd {
+      margin-left: 10px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .container {
+      width: 480px;
+      height: 200px;
+      background: #fff;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    }
+
+    .img-container {
+      width: 40%;
+      height: 100%;
+      float: left;
+      position: relative;
+    }
+
+    .img-container img {
+      width: 100%;
+      height: 100%;
+      border-top-left-radius: 5px;
+      border-bottom-left-radius: 5px;
+    }
+
+    .content {
+      width: 60%;
+      height: 100%;
+      float: left;
+      padding: 30px 40px;
+      box-sizing: border-box;
+    }
+
+    .head {
+      padding-bottom: 30px;
+    }
+
+    .head p {
+      font-size: 28px;
+      color: #444444;
+      font-weight: 600;
+      text-transform: capitalize;
+    }
+
+    .head span {
+      color: black;
+      font-size: 14px;
+      text-transform: capitalize;
+    }
+
+    .data {
+      width: 90%;
+      overflow: hidden;
+    }
+
+   .inner-data {
+      width: 100%;
+      float: left;
+      text-align: left;
+      color: black;
+    }
+
+    .inner-data p {
+      font-size: 14px;
+      padding-bottom: 0px;
+    }
+
+    .inner-data span {
+      font-size: 18px;
+      font-weight: 400;
+    }
+
+    .floating-icon {
+      position: absolute;
+      width: 50px;
+      height: 50px;
+      top: 38%;
+      right: -5%;
+      background: #1DA1F2;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+
+    .floating-icon .fa {
+      position: absolute;
+      left: 18px;
+      top: 15px;
+      color: #fff;
+      font-size: 20px;
+      transition: all 1s ease;
+    }
+
+    .floating-icon.active .fa {
+      transform: rotate(45deg);
+      transition: all 1s ease;
+    }
+
+    .btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      text-transform: uppercase;
+      font-size: 12px;
+      background: #1DA1F2;
+      padding: 6px 15px;
+      border-radius: 50px;
+      color: #fff;
+      font-weight: 600;
+      opacity: 0;
+      transition: all 1s ease;
+      cursor: pointer;
+    }
+
+    .btn.active {
+      opacity: 1;
+    }
+
+    .topnav .search-container button:hover {
+      background: #ccc;
+    }
+
+    .lal {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+
+    .rev {
+      margin-top: 40px;
+
+    }
+
+    .iew {
+      font-size: 35px;
+      color: black;
+      border-top: 2px solid #761414;
+      border-bottom: 2px solid #761414;
+    }
+
+    .last {
+      margin-left: 760px;
+    }
+
+    .mur {
+      margin-left: 20px;
+    }
+
+    @media screen and (max-width: 600px) {
+      .topnav .search-container {
+        float: none;
+      }
+
+      .topnav a,
+      .topnav input[type=text],
+      .topnav .search-container button {
+        float: none;
+        display: block;
+        text-align: left;
+        width: 100%;
+        margin: 0;
+        padding: 14px;
+      }
+
+      .topnav input[type=text] {
+        border: 1px solid #ccc;
+      }
+    }
+
+    .heading h3 {
+      margin-left: 15px;
+      font-size: 30px;
+      font-family: 'Times New Roman', Times, serif;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+
+    .h {
+      color: rgb(131, 11, 11);
+      font-size: 50px;
+      border-bottom: 2px solid rgb(145, 60, 60);
+
+    }
+
+    .k {
+      color: rgb(131, 11, 11);
+      font-size: 50px;
+      border-bottom: 2px solid rgb(145, 60, 60);
+
+    }
+
+    .para {
+      font-size: 24px;
+      font-family: "Poppins", sans-serif;
+      word-spacing: 2px;
+    }
+
+    #search{
+      margin-top: 12px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Navbar -->
+  <div class="topnav">
+    <a class="active" href="http://127.0.0.1:8000/">Home</a>
+    <a href="http://127.0.0.1:8000/about">About</a>
+    <a href="http://127.0.0.1:8000/#twi">Contact</a>
+    <div class="search-container">
+      <form action="/search" method="get">
+        <input type="hidden" name="profession" value="baby">
+        <input type="hidden" name="credential" value="{{detail}}">
+        <input type="search" placeholder="Search by domain" name="search" id="search" height="18px">
+        <button type="submit" onclick="diva()"><i class="fa fa-search"></i></button>
+      </form>
+    </div>
+  </div>
+
+
+  <!-- Header -->
+  <header class="w3-container w3-center" >
+    <img src="{% static 'baby_bg.jpg' %}" alt="img" width="100%" height="600px">
+  </header>
+  </div>
+
+  <div class="heading">
+    <h3>About Our Top rated professionals</h3>
+  </div>
+  <div class="lal">
+    <div class="brd">
+      
+      {% for i in values %}
+      
+      <form action="/land/" method="GET">
+        
+        <input type="hidden" name="profession" value="baby">
+        <input type="text" name="credential" value="{{detail}}" style="display:none">
+        
+          <button id="result" value="{{i.2}}" name="btn">
+        
+          <div class="wrapper" id="wrapper">
+            <div class="container">
+              <div class="img-container">
+                {% if i.0 == "childcare" %}
+             <img src="{% static 'caretaker1.jpg' %}" alt="">
+             {% endif %}
+
+             {% if i.0 == "nurse" %}
+             <img src="{% static 'caretaker2.jpg' %}" alt="">
+             {% endif %}
+              </div>
+
+              <div class="content">
+                <div class="head">
+                  <p><u>{{i.2}}</u></p>
+                  <span>{{i.0}}</span>
+                </div>
+                <div class="data">
+                  <div class="inner-data">
+                    <p style="font-size: 16px;" id="field-inner"> Experience : 5 Years </p>
+                    <span style="font-size:16px;"></span>
+                  </div>
+                  
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </button>
+
+      </form>
+      <br><br>
+    
+      {% endfor %}
+  
+    <div id="images">
+      <form action="/land/" method="GET">
+        <input type="hidden" name="profession" value="baby">
+        <input type="text" name="credential" value="{{detail}}" style="display:none">
+        
+      <button name="btn" id="result" value="Jenifer">
+      <!-- <a href="http://127.0.0.1:8000/doct1/"> -->
+      <div class="wrapper" id="wrapper">
+        <div class="container">
+          
+          <div class="img-container">
+           <img src="{% static 'caretaker1.jpg' %}" alt="">
+          </div>
+         
+          <div class="content">
+           <div class="head">
+               <p>Jenifer</p>
+               <span>Baby Caretaker</span>
+           </div>
+           <div class="data">
+             <div class="inner-data">
+               <p style="font-size: 20px;"><b><u>Work Experience</u></b></p>
+               <span style="font-size: 20px;">3 years</span>
+             </div>
+           </div>
+          </div>
+        
+       </div>
+     </div>
+    </button>
+    </form>
+     <br><br>
+     
+     
+     
+     <form action="/land/" method="GET">
+      <input type="hidden" name="profession" value="baby">
+        <input type="text" name="credential" value="{{detail}}" style="display:none">
+        
+      <button name="btn" id="result" value="Rihanna">
+     <div class="wrapper" id="wrapper">
+      
+    
+      <div class="container">
+        <div class="img-container">
+          <img src="{% static 'caretaker2.jpg' %}" alt="">
+        </div>
+       
+        <div class="content">
+         <div class="head">
+             <p>Rihanna</p>
+             <span>Baby Caretaker</span>
+         </div>
+         <div class="data">
+           <div class="inner-data">
+            <p style="font-size: 20px;"><b><u>Work Experience</u></b></p>
+               <span style="font-size: 20px;">6 years</span>
+           </div>
+         </div>
+        </div>
+       
+        
+     </div>
+   </div>
+
+   
+  </button>
+</form>
+<br><br>
+
+  
+  
+  <form action="/land/" method="GET">
+    <input type="hidden" name="profession" value="baby">
+        <input type="text" name="credential" value="{{detail}}" style="display:none">
+        
+    <button name="btn" id="result" value="Tina">
+   <div class="wrapper" id="wrapper">
+    
+  
+    <div class="container">
+      <div class="img-container">
+       <img src="{% static 'caretaker3.jpg' %}" alt="">
+      </div>
+     
+      <div class="content">
+       <div class="head">
+           <p>Tina</p>
+           <span>Baby Caretaker</span>
+       </div>
+       <div class="data">
+         <div class="inner-data">
+          <p style="font-size: 20px;"><b><u>Work Experience</u></b></p>
+               <span style="font-size: 20px;">4 years</span>
+         </div>
+       </div>
+      </div>
+     
+   </div>
+ </div>
+</div>
+
+
+
+  </div>
+  
+ 
+</button>
+</form>
+<br><br>
+<br><br>
+  <div class="mur">
+    <span class="h">We Serve</span>
+    <p class="para">
+          Need a Baby Care Taker? Need a leading Caretaker...
+
+Find a local caretaker who specializes in your condition...
+
+
+Find the ‘best baby caretaker near me’ on "Connectify". The website/mobile app provides you with instant 
+details  along with a range of options.
+    </p><br>
+    <span class="k">How to access</span>
+    <p class="para">
+
+
+      Click on the ‘Book Appointment’ tab and fill in the required details or directly contact the baby caretaker to fix an
+      appointment.
+
+    </p>
+    <div class="rev">
+      <p class="iew">"Connectify gives you the best baby care takers around you, so that u have less work to do."<br><span class="last">-Krishna Kumar</span> </p>
+    </div>
+  </div>
+
+  </div>
+
+
+  <script>
+    // Used to toggle the menu on small screens when clicking on the menu button
+    function myFunction() {
+      var x = document.getElementById("navDemo");
+      if (x.className.indexOf("w3-show") == -1) {
+        x.className += " w3-show";
+      } else {
+
+
+        x.className = x.className.replace(" w3-show", "");
+      }
+    }
+    
+    window.onload = function() {
+      var text = document.getElementById("field-inner").innerHTML;
+      var image = document.getElementById("images");
+      if(text == "") {
+        image.style.display = "block";
+      }
+      else {
+        image.style.display = "none";
+      }
+    }
+  </script>
+
+</body>
+
+</html>

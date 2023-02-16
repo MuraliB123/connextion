@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head>
+  {% load static %}
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="shortcut icon" href="{% static 'connectify_favicon.png' %}">
+<link href="https://fonts.googleapis.com/css2?family=Creepster&family=Lato&family=Zen+Antique+Soft&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>About Us</title>
+<style>
+body {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+}
+
+
+
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+
+}
+
+.column {
+  float: left;
+  width: 50%;
+  height:30vh;
+  margin-bottom: 16px;
+  padding: 0 8px;
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  margin: 8px;
+}
+
+.about-section {
+  padding: 50px;
+  text-align: center;
+  background-color: #3A5BA0;
+  color: white;
+
+}
+
+.container {
+  padding: 0 16px;
+}
+
+.container::after, .row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.para {
+  color: grey;
+  font-size: 27px;
+  word-spacing: 4px;
+}
+
+.button {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
+  color: white;
+  background-color:black;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 26px;
+}
+
+.button:hover {
+  background-color: gray;
+  color:crimson;
+}
+.seri{
+    float:left;
+}
+.hd{
+  font-family: "Poppins" ,sans-serif;
+  position:relative;
+ color:whitesmoke;
+ font-size:40px;
+ animation-name:head;
+ animation-duration:4s;
+ animation-iteration-count:1;
+}
+@keyframes head
+{
+    0%{left: 0px;}
+    50%{left:200px;}
+    100%{left:0px;}
+}
+
+
+@media screen and (max-width: 650px) {
+  .column {
+    width: 100%;
+    float:none;
+    display:  block;
+  }
+  .seri img
+   {
+      display:none;
+   }
+   .nope
+
+   {
+    padding-top: 40px;
+   }
+  .para{
+    font-size:14px;
+  }
+  
+   
+}
+
+
+.container h2
+{
+   font-family: 'Times New Roman', Times, serif;
+   font-size: 40px;
+   
+}
+</style>
+</head>
+<body>
+
+<div class="about-section">
+  <a href="http://127.0.0.1:8000" class="hd"><img src="{% static 'home_logo.png' %}" height="50"></a>
+  <p><i>Welcome to CONNECTIFY,the largest network of professional service providers</i></p>
+  <p><i>You can hire them,book appoinments,ask for help and what not ?</i></p>
+</div>
+
+<h2 style="text-align:center"></h2>
+<div class="row">
+  <div class="column">
+    <div class="card">
+        <div class="seri">
+      <img src="{% static 'target.jpg' %}" alt="Mike" style="width:30%" height="30%;"></div>
+      <div class="container">
+        <h2>Our Vision</h2>
+        <p class="title"></p>
+        <p class="para">We are focussed in connecting the trusted professionals from variety of domains such as medicine,repairs,etc. .so as to provide quality service to anyone and anywhere.we believe strongly that in this way we can satisfy the needs of our huge population as well as removing frauds from society.</p>
+        <p><a href="http://127.0.0.1:8000/login/"><button class="button" id="btn">Get Started</button></a></p>
+      </div>
+    </div>
+  </div>
+  
+  <div class="column">
+    <div class="card">
+      <div class="seri"> 
+        <img src="{% static 'images.jpg' %}" alt="Mike" style="width:30%" height="30%;" class="nope">
+      </div>
+      <div class="container">
+        <h2 class="nope">How it works ?</h2>
+        <p class="title"></p>
+        <p class="para"> Users will have the access to all the services once an account has been created.By creating an account ,user accepts our terms and conditions.They have the privilage to give feedback about their experience and access to wide range of services available. </p><a href="http://127.0.0.1:8000/tutor_register/"><p><button class="button">Join us</button></a></p></div>
+      </div>
+  </div>
+</div>
+
+
+<script type="text/javascript">
+  (function(d, m){
+      var kommunicateSettings = 
+          {"appId":"359b681b66f0c563eb32ce8a10cfccc28","popupWidget":true,"automaticChatOpenOnNavigation":true};
+      var s = document.createElement("script"); s.type = "text/javascript"; s.async = true;
+      s.src = "https://widget.kommunicate.io/v2/kommunicate.app";
+      var h = document.getElementsByTagName("head")[0]; h.appendChild(s);
+      window.kommunicate = m; m._globals = kommunicateSettings;
+  })(document, window.kommunicate || {});
+/* NOTE : Use web server to view HTML files as real-time update will not work if you directly open the HTML file in the browser. */
+</script>
+</body>
+</html>

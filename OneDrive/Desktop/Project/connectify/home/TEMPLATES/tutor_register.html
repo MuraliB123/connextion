@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    {% load static %}
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'tutor-register-main.css' %}">
+    <link rel="shortcut icon" href="{% static 'connectify_favicon.png' %}">
+    <script src="{% static 'tutor-register-main.js' %}" defer type="text/javascript"></script>
+    <!-- <script src="{% static 'Form.js' %}" defer type="text/javascript"></script> -->
+    <link rel="apple-touch-icon" sizes="57x57" href="../STATIC/i/f/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="../STATIC/i/f/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="../STATIC/i/f/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="../STATIC/i/f/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="../STATIC/i/f/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="../STATIC/i/f/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="../STATIC/i/f/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="../STATIC/i/f/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../STATIC/i/f/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="../STATIC/i/f/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../STATIC/i/f/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="../STATIC/i/f/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../STATIC/i/f/favicon-16x16.png">
+    <meta name="theme-color" content="rgb(11, 78, 179)">
+    <link rel="manifest" href="../STATIC/i/f/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="../i/f/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <title>Register ! </title>
+    <style>
+      #showpass,#showcpass{
+        float:right;
+        position: relative;
+        top: -33px;
+        right: 10px;
+        cursor: pointer;
+        color: cornflowerblue;
+        outline:none;
+      }
+    </style>
+  </head>
+  <body>
+    
+    <form action="/create/" class="form" method="POST" enctype="multipart/form-data">{% csrf_token %}
+      
+      <h1 class="text-center">Register as a <span style="color: #ef6d6d">Service Provider/User</span></h1>
+      <!-- Progress bar -->
+      <div class="progressbar">
+        <div class="progress" id="progress"></div>
+        <div class="progress-step progress-step-active" data-title=""></div>
+        <div class="progress-step" data-title=""></div>
+        <div class="progress-step" data-title=""></div>
+        <div class="progress-step" data-title=""></div>
+        <div class="progress-step" data-title=""></div>
+      </div>
+
+
+      <!-- Steps -->
+
+      <!-- 1 -->
+      <div class="form-step form-step-active">
+        <div class="input-group">
+          <input type="text" name="tname" id="tname" placeholder="Name" onkeyup="validname()">
+          <span id="brd1"></span>
+        </div>
+        <div class="input-group">
+          <input type="email" name="tmail" id="tmail" placeholder="Email" onkeyup="validmail()"/>
+          <span id="brd2"></span>
+        </div>
+       <!-- <div class="input-group">
+          <input type="number" name="tmobile" placeholder="Contact number (+91)" id="tmobile" onkeyup="validphone()"/>
+          <span id="brd3"></span>
+         <!-- <a href="#" id="sendotpbtn">Send OTP</a>
+        </div>
+      -->
+
+        <div class="input-group">
+          <!--
+          <label class="radio">Gender</label>
+          
+          <div class="radiogender">
+                        
+            <div class="">
+                 <span class="radioinput">
+                <input type="radio" id="tgmale" name="tgender" value="Male">
+                    <label class="radio" for="tgmale">Male</label>
+                <input type="radio" id="tgfemale" name="tgender" value="Female">
+                    <label class="radio" for="tgfemale">Female</label><br></span>
+                <input type="radio" id="tgother" name="tgender" value="Other">
+                    <label class="radio" for="tgother">Other</label><br></span>
+         </div>-->
+
+
+          <select id="tgender" name="tgender" class="customdrop1">
+            <option value="">-Select Gender-</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="others">others</option>
+          </select>
+          <small id="gender-error"></small>
+
+        </div>
+
+        <div class="input-group">
+          <input type="password" name="tpass" id="tpass" placeholder="Create password" onkeyup="validpass()"/>
+          <span id="showpass" onclick="showpass()">Show</span>
+          <small id="brd4"></small>
+        </div>
+
+        <div class="input-group">
+          <input type="password" name="cpass" id="cpass" placeholder="Confirm password" onkeyup="validcpass()"/>
+          <span id="showcpass" onclick="showcpass()">Show</span>
+          <small id="brd5"></small>
+        </div>
+
+        <div class="">
+          <a href="#" class="btn btn-next width-50 ml-auto">Next</a>
+        </div>
+      </div>
+
+
+      <!-- 2 -->
+
+      <div class="form-step">
+        <div class="radio">
+                        
+          <div class="div">
+               <i class='bx bxs-user'></i><span class="urolet">User Role</span>
+               <span class="radioinput">
+              <input type="radio" id="studentlogin" name="userrole" value="Customer">
+                  <label for="studentlogin">Customer</label>
+              <input type="radio" id="tutorlogin" name="userrole" value="ServiceProvider">
+                  <label for="tutorlogin">Provider</label><br></span>
+       </div>
+     <div class="input-group">
+          <label for="tdob">Date of Birth</label>
+          <input type="date" name="tdob" id="tdob"/>
+        </div>
+        <div class="btns-group">
+          <a href="#" class="btn btn-prev">Previous</a>
+          <a href="#" class="btn btn-next">Next</a>
+        </div>
+      </div>
+      </div>
+
+
+
+      <!-- 3 -->
+      <div class="form-step">
+        <div class="input-group">
+          <small>Upcoming fields are to be filled<br> only by service provider</small>
+          <input type="text" name="tcategory" id="tcategory"
+            placeholder="Enter the Service you provide (You can add many later)" />
+        </div>
+        <div class="input-group">
+          <input type="text" name="tpincode" id="tpincode" placeholder="Enter your area Pincode"
+            oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+            maxlength="6" />
+        </div>
+        <div class="input-group">
+       
+          <input type="text" name="tlanguages" id="tlanguages" placeholder="Select The Primary Language You Speak"
+            list="languagesdrop" />
+          <datalist id="languagesdrop">
+            <option value="Hindi">Hindi</option>
+            <option value="English">English</option>
+            <option value="Tamil">Tamil</option>
+            <option value="Telugu">Telugu</option>
+            <option value="Malayalam">Malayalam</option>
+            <option value="Bengali">Bengali</option>
+            <option value="Marathi">Marathi</option>
+            <option value="Gujarati">Gujarati</option>
+            <option value="Urdu">Urdu</option>
+            <option value="Kannada">Kannada</option>
+            <option value="Punjabi">Punjabi</option>
+            <option value="Assamese">Assamese</option>
+            <option value="Sanskrit">Sanskrit</option>
+          </datalist>
+          <span style="color: rgb(11, 78, 179);font-size: 0.85rem;float: right; cursor: pointer;"><span
+              style="font-weight: bold;">+ </span>Add language</span>
+        </div>
+        <div class="input-group">
+          <label for="">Enter Your Field of work</label>
+          <input type="text" name="trecentcourse" id="trecentcourse" placeholder="Choose Your Domain"
+            list="coursedrop" >
+          <datalist id="coursedrop">
+            <option value="Medical">Medical</option>
+            <option value="Plumbing">Plumbing</option>
+            <option value="Electric repairs">Electric repairs</option>
+            <option value="Carpenting">Carpenting</option>
+            <option value="Sports and Fitness">Sports and Fitness</option>
+            <option value="Restaurants">Restaurants</option>
+            <option value="Housekeeping">Housekeeping</option>
+            <option value="BabyCare">BabyCare</option>
+            <option value="Beauticians">Beauticians</option>
+            <option value="DailyNeeds">DailyNeeds</option>
+            <option value="Finance and Loans">Finance and Loans</option>
+            
+          </datalist>
+
+          <div class="input-group">
+            <input type="text" name="tuniv" id="tuniv" placeholder="Enter your qualification" />
+          </div>
+
+
+          <select id="t-com-or-pur" name="t-com-or-pur" class="customdrop1">
+            <option value="">Select Completed/Pursuing</option>
+            <option value="completed">Completed</option>
+            <option value="pursuing">Pursuing</option>
+          </select>
+
+
+        </div>
+
+        <div class="btns-group">
+          <a href="#" class="btn btn-prev">Previous</a>
+          <a href="#" class="btn btn-next">Next</a>
+        </div>
+      </div>
+
+      <!-- 4 -->
+<!--
+      <div class="form-step">
+        <div class="input-group">
+          <label for="tclassmode">Upload your Aadhar ID photocopy </label>
+          <input type="file" name="m1" id="I-can-teach-Online"><br>
+          <label for="tclassmode">Upload your reference letter(from any reputed expert,organisation,etc related to your field) </label>
+          <input type="file" name="m2" id="Students-can-travel-to-my-home">
+
+          
+
+        </div>
+        <div class="input-group">
+
+
+          <div class="input-group">
+            <select id="texpy" name="texpy" class="customdrop1">
+              <option value="">Years of Experience</option>
+              <option value="noexperience">No Experience</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+              <option value="10">10</option>
+              <option value="10+">10+ Years</option>
+            </select>
+          </div>
+
+          <div class="input-group">
+            <input type="number" name="tchargeph" id="tchargeph" placeholder="How much do you charge" />
+            <span class="rupsym"><i class='bx bx-rupee'></i></span><span class="perhrsym">per hour</span>
+          </div>
+
+        </div>
+        <div class="btns-group">
+          <a href="#" class="btn btn-prev">Previous</a>
+          <a href="#" class="btn btn-next">Next</a>
+        </div>
+      </div>
+
+      <!-- 5 -->
+
+      <div class="form-step">
+        <div class="input-group">
+          <label for="tdescription">Describe yourself</label>
+          <input type="text" name="tdescription" id="tdescription">
+          
+        </div>
+        <div class="input-group">
+          <input type="number" name="tmobile" placeholder="Contact number (+91)" id="tmobile" onkeyup="validphone()"/>
+          <span id="brd3"></span> 
+        </div>
+
+        <div class="btns-group">
+          <a href="#" class="btn btn-prev">Previous</a>
+          <input type="submit" value="Join now" class="btn" />
+          <small id="submit-error"></small>
+        </div>
+      </div>
+
+
+    </form>
+  <script>
+    function validname()
+{
+  let uname=document.getElementById("tname");
+  if(uname.value.length < 8)
+  {
+     document.getElementById("brd1").innerHTML = "invalid username"; 
+  }
+  else
+  {
+      document.getElementById("brd1").innerHTML = "valid username"; 
+  }
+}
+function validmail()
+{
+  let mail=document.getElementById("tmail").value;
+  if(mail.search(/[@]/)==-1 || mail.search(/[.]/)==-1)
+  {
+      document.getElementById("brd2").innerHTML = "invalid email";
+  }
+  else if(mail.search(/[@]/)!=-1 && mail.search(/[.]/)!=-1)
+  {
+      document.getElementById("brd2").innerHTML = "valid email";
+  }
+}
+function validphone()
+{
+  let phone = document.getElementById("tmobile").value;
+  if(phone.length != 10)
+  {
+    document.getElementById("brd3").innerHTML = "invalid phone number";
+  }
+  else{
+    document.getElementById("brd3").innerHTML = "valid phone number";
+  
+  }
+}
+function validpass()
+{
+ 
+  let passcode=document.getElementById("tpass").value;
+  if(passcode.length <8)
+  {
+      document.getElementById("brd4").innerHTML="password must be minimum 8 characters length";
+  }
+  else if(passcode.search(/[a-z]/)==-1)
+  {
+      document.getElementById("brd4").innerHTML="atleast one small case should be present";
+  }
+  else if(passcode.search(/[A-Z]/)==-1)
+  {
+      document.getElementById("brd4").innerHTML="atleast one uppercase is present";
+  }
+  else if(passcode.search(/[0-9]/)==-1)
+  {
+      document.getElementById("brd4").innerHTML="atleast one numeric value present";
+  }
+  else if(passcode.search(/[!\@\#\$\%\^\&\*\(\)]/)== -1)
+  {
+      document.getElementById("brd4").innerHTML="atleast one special case needed";
+  }
+  else
+  {
+      document.getElementById("brd4").innerHTML="valid password";
+  } 
+
+}
+function showpass()
+{
+    let rev=document.getElementById("tpass");
+    if(rev.type=="password")
+    {
+        rev.type="text";
+        document.getElementById("showpass").innerHTML = "hide";
+    }
+    else{
+        rev.type="password";
+        document.getElementById("showpass").innerHTML = "show";
+    }
+}
+function validcpass()
+{
+    let repass=document.getElementById("cpass").value;
+    let opass = document.getElementById("tpass").value;
+    if((repass.localeCompare(opass))!=0)
+    {
+        document.getElementById("brd5").innerHTML = "reenter password";
+    }
+    else if ((repass.localeCompare(opass))==0){
+        document.getElementById("brd5").innerHTML = "valid password";
+    }
+}
+function showcpass()
+{
+    let rev=document.getElementById("cpass");
+    if(rev.type=="password")
+    {
+        rev.type="text";
+        document.getElementById("showcpass").innerHTML = "hide";
+    }
+    else{
+        rev.type="password";
+        document.getElementById("showcpass").innerHTML = "show";
+    }
+}
+</script>
+  </body>
+
+</html>

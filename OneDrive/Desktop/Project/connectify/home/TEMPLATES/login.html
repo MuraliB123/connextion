@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'login.css' %}">
+    <title>Login</title>
+    <link rel="shortcut icon" href="{% static 'connectify_favicon.png' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!--<script>
+        function myfunction() {
+        document.getElementById("login").style.display = "none";
+        document.getElementById("register").style.display = "block";
+        document.getElementById("container").style.margin = "50px 0 0 0";
+        document.getElementById("imgbasic").style.margin = "-50px 0 0 0";
+}
+        function myfunction2() {
+        document.getElementById("login").style.display = "block";
+        document.getElementById("register").style.display = "none";
+}
+    </script>-->
+</head>
+
+
+<body oncontextmenu="false">
+
+
+	<input type="text" name="error" id="error" value="{{error}}" style="display: none;">
+<div class="container" id="container">
+		<div class="img" id="imgbasic">
+			<img src="{% static 'login.png' %}">
+		</div>
+
+        <!-- Login -->
+
+		<div class="login-content" id="login">
+			<form id="slogin" action="/profile/" method="POST">{% csrf_token %}
+				<span>
+                    <img src="{% static 'connectify.png' %}" alt="Connectify">
+                  </span>
+				<h2 class="title">Welcome</h2><br>
+
+           		<div class="input-div one">
+           		   <div class="i">
+                    <i class="fa-solid fa-user"></i>
+           		   </div>
+           		   <div class="div">
+           		   		<h5>UserName</h5>
+           		   		<input type="text" class="input" id="slmail" name="slmail">
+           		   </div>
+                   <span class="error"></span>
+           		</div>
+                
+
+           		<div class="input-div pass">
+           		   <div class="i"> 
+                    <i class='bx bxs-lock-alt' ></i>
+           		   </div>
+           		   <div class="div">
+           		    	<h5>Password</h5>
+           		    	<input type="password" class="input" id="slpass" name="slpass">
+            	   </div>
+                <span class="error"></span>
+            	</div>
+
+                <div class="radio">
+                        
+                    <div class="div">
+                         <i class='bx bxs-user'></i><span class="urolet">User Role</span>
+                         <span class="radioinput">
+                        <input type="radio" id="studentlogin" name="userrole" value="Customer">
+                            <label for="studentlogin">Customer</label>
+                        <input type="radio" id="tutorlogin" name="userrole" value="ServiceProvider">
+                            <label for="tutorlogin">Provider</label><br></span>
+                 </div>
+              <span class="error"></span>
+              </div>
+
+              
+
+            	<a href="#">Forgot Password?</a>
+
+            	<input type="submit" class="btn" value="Login">
+
+                <a class="newacc" href="#" onclick="myfunction()">Create an account now</a>
+            </form>
+        </div>
+
+        <!-- Login -->
+
+
+
+
+        <!--Register--><!--
+        <div class="login-content" id="register">
+			<form action="" method="post" id="sregister">
+				<h2 class="title">Join Us</h2>
+
+           		<div class="input-div one">
+           		   <div class="i">
+                    <i class='bx bxs-user'></i>
+           		   </div>
+           		   <div class="div">
+           		   		<h5>Name</h5>
+           		   		<input type="name" class="input" id="srname">
+           		   </div>
+                      <span class="error"></span>
+           		</div>
+                   
+                 
+           		<div class="input-div one">
+                    <div class="i">
+                    <i class='bx bxl-gmail'></i>
+                    </div>
+                    <div class="div">
+                            <h5>Email</h5>
+                            <input type="email" class="input" id="srmail">
+                    </div>
+                    <span class="error"></span>
+                 </div>
+                 
+
+                 <div class="input-div one">
+                    <div class="i"> 
+                    <i class='bx bxs-phone'></i>
+                    </div>
+                    <div class="div">
+                         <h5>Phone no (+91-IND)</h5>
+                         <input type="number" class="input" id="srmobile" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength="10">
+                 </div>
+                 <span class="error"></span>
+              </div>
+              
+
+           		<div class="input-div one">
+           		   <div class="i"> 
+                    <i class='bx bxs-lock-alt' ></i>
+           		   </div>
+           		   <div class="div">
+           		    	<h5>Create password</h5>
+           		    	<input type="password" class="input" id="srpass">
+            	   </div>
+                   <span class="error"></span>
+            	</div>
+                
+
+                <div class="input-div pass">
+                    <div class="i"> 
+                    <i class='bx bxs-key' ></i>
+                    </div>
+                    <div class="div">
+                         <h5>Confirm password</h5>
+                         <input type="password" class="input" id="srpassv">
+                 </div>
+                 <span class="error"></span>
+              </div>
+              
+
+
+            	<input type="submit" class="btn" value="Register">
+                
+            	<a onclick="myfunction2()" class="newacc">Already a user? Login</a>
+            </form>
+        </div>
+
+        -->
+        <!--Register -->
+
+</div>
+
+
+
+
+<!--
+    <form id="slogin" method="post" action="">
+        <input type="email" id="slmail" placeholder="Email" required=""><br><br>
+        <input type="password" id="slpass" placeholder="Password" required=""><br><br>
+        <button type="submit">Login</button><br><br>
+        <button onclick="myfunction()">New User? Register</button>
+    </form>
+
+
+    <form id="sregister" method="post" action="">
+        <input type="name" id="srname" placeholder="Name" required=""><br><br>
+        <input type="email" id="sr" placeholder="Email" required=""><br><br>
+        <input type="password" id="srpass" placeholder="Create Password" required=""><br><br>
+        <input type="password" id="srpassv" placeholder=" Re-type Password" required=""><br><br>
+        <input type="number" id="srmobile" placeholder="Phone number" required=""><br><br>
+        <button type="submit">Register</button><br><br>
+        <button type="submit" onclick="myfunction2()">Already a student? Login</button>
+
+    </form>
+-->
+
+<script>
+
+window.onload = function() {
+    a=document.getElementById('error').value;
+      if (a!=""){
+            alert(a);
+      }
+    }
+const inputs = document.querySelectorAll(".input");
+
+
+    function addcl(){
+        let parent = this.parentNode.parentNode;
+        parent.classList.add("focus");
+    }
+    
+    function remcl(){
+        let parent = this.parentNode.parentNode;
+        if(this.value == ""){
+            parent.classList.remove("focus");
+        }
+    }
+    
+    
+    inputs.forEach(input => {
+        input.addEventListener("focus", addcl);
+        input.addEventListener("blur", remcl);
+    });
+   let uname =  document.getElementById("slmail").value;
+   let upass =  document.getElementById("slpass").value;
+    
+    </script>
+
+    <!--valdation-->
+    <!--
+    <script>
+const form = document.getElementById('slogin');
+const form = document.getElementById('sregister');
+const email = document.getElementById('slmail');
+const password = document.getElementById('slpass');
+const username = document.getElementById('srname');
+const email = document.getElementById('srmail');
+const mobile = document.getElementById('srmobile');
+const password = document.getElementById('srpass');
+const password2 = document.getElementById('srpassv');
+
+form.addEventListener('submit', e => {
+    e.preventDefault();
+
+    validateInputs();
+});
+
+const setError = (element, message) => {
+    const inputControl = element.parentElement;
+    const errorDisplay = inputControl.querySelector('.error');
+
+    errorDisplay.innerText = message;
+    inputControl.classList.add('error');
+    inputControl.classList.remove('success')
+}
+
+const setSuccess = element => {
+    const inputControl = element.parentElement;
+    const errorDisplay = inputControl.querySelector('.error');
+
+    errorDisplay.innerText = '';
+    inputControl.classList.add('success');
+    inputControl.classList.remove('error');
+};
+
+const isValidEmail = email => {
+    const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(String(email).toLowerCase());
+}
+
+const validateInputs = () => {
+    const usernameValue = username.value.trim();
+    const emailValue = email.value.trim();
+    const mobileValue = mobile.value.trim();
+    const passwordValue = password.value.trim();
+    const password2Value = password2.value.trim();
+
+    if(usernameValue === '') {
+        setError(username, 'Username is required');
+    } else {
+        setSuccess(username);
+    }
+
+    if(mobileValue === '') {
+        setError(username, 'Phone no. is required');
+    } else {
+        setSuccess(username);
+    }
+
+    if(emailValue === '') {
+        setError(email, 'Email is required');
+    } else if (!isValidEmail(emailValue)) {
+        setError(email, 'Provide a valid email address');
+    } else {
+        setSuccess(email);
+    }
+
+    if(passwordValue === '') {
+        setError(password, 'Password is required');
+    } else if (passwordValue.length < 8 ) {
+        setError(password, 'Password must be at least 8 character.')
+    } else {
+        setSuccess(password);
+    }
+
+    if(password2Value === '') {
+        setError(password2, 'Please confirm your password');
+    } else if (password2Value !== passwordValue) {
+        setError(password2, "Passwords doesn't match");
+    } else {
+        setSuccess(password2);
+    }
+
+};
+    </script>-->
+    <!-- Validation -->
+
+
+</body>
+</html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+  {% load static %}
+<title>Book an Appointment</title>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="{% static 'docstyle.css'%}">
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto'>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
+
+.book{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+  
+#b{
+    background-color: linear-gradient(black,grey);
+}
+.topnav {
+  
+  overflow: hidden;
+}
+.button {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
+  color: white;
+  background-color: green;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 26px;
+}
+/* Style the links inside the navigation bar */
+.topnav a {
+  float: left;
+  color: black;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+.we
+{
+  border-bottom: solid blue 3px;
+  font-size: 32px;
+  font-family: 'Times New Roman', Times, serif;
+  color:black;
+}
+/* Change the color of links on hover */
+.topnav a:hover {
+
+  transform: scale(1.4);
+  transition: all 0.3s;
+}
+.q
+{
+  font-size: 32px;
+  font-family: 'Times New Roman', Times, serif;
+  color:black;
+}
+/* Add a color to the active/current link */
+.topnav a.active {
+  
+  color: black;
+}
+.fa fa-transgender
+{
+  size: 20px;
+  color:blue;
+}
+</style>
+</head>
+<body class="w3-light-grey" id="b" style="background-color: linear-gradient(black,grey);">
+
+<!-- Page Container -->
+<div class="w3-content w3-margin-top" style="max-width:1400px;">
+
+  <!-- The Grid -->
+  <div class="w3-row-padding">
+  
+    <!-- Left Column -->
+    <div class="w3-third">
+      <div class="w3-white w3-text-grey w3-card-4">
+        <div class="w3-display-container">
+          <img src="{% static 'download (1).png' %}" style="width:100%" alt="Avatar">
+          <div class="w3-display-bottomleft w3-container w3-text-black">
+            <h2 style="text-transform:capitalize;padding-top: 20px;">{{name}}</h2>
+          </div>
+        </div>
+        <div class="w3-container">
+          <p style="text-transform:capitalize"><i class="fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal"></i>{{role}}</p>
+          <p><i class="fa fa-envelope fa-fw w3-margin-right w3-large w3-text-teal"></i>{{mail}}</p>
+          <p><i class="fa fa-phone fa-fw w3-margin-right w3-large w3-text-teal"></i>{{no}}</p>
+          <p style="text-transform:capitalize"><img src="{% static 'gender.png' %}" width="20px"height="20px" style="color: blue;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{gen}}</p>
+          <p style="text-transform:capitalize"><i class="fa fa-home fa-fw w3-margin-right w3-large w3-text-teal"></i>{{dob}}</p>
+          <hr>
+
+          
+          <br>
+        </div><!--https://docs.google.com/forms/d/e/1FAIpQLSft6_v_inRQcFOOTvKoZmazQZNXtT_DP86fEtUD-JdKzTMEiA/viewform?usp=sf_link--><!--book-->
+      </div><br>
+
+     
+      </div>
+
+    <!-- Right Column -->
+	
+    <div class="w3-twothird">   
+      <div class="w3-container w3-card w3-white w3-margin-bottom">
+        <div class="topnav">
+          <a class="active" href="http://127.0.0.1:8000/">Home</a>
+          <a href="http://127.0.0.1:8000/about/">About</a>
+          <a href="http://127.0.0.1:8000/#twi">Contact</a>
+        </div>
+      <div class="w3-container"><br>
+        <h3>Kindly confirm your Request by clicking the below button</h3> <br>
+        <button class="button" id="btn" onclick="location.href = 'https://docs.google.com/forms/d/e/1FAIpQLSft6_v_inRQcFOOTvKoZmazQZNXtT_DP86fEtUD-JdKzTMEiA/viewform?usp=sf_link';">Book an Appoinment</button>
+       
+        </div>
+		<br><br>
+	  
+        <span class="we"> We Believe </span><br>
+        <h2 class="q"> Quality in a service or product is not what we put into it .It is what the customer gets out of it.</h2>
+        <span class="we"> To The Customer </span><br>
+        <p class="q">Kindly drop you feedback  to the below mentioned email id<br>
+        <a href="https://mail.google.com/">support@gmail.com</a> </p>
+    
+    
+      </div>
+     
+</body>
+</html>
